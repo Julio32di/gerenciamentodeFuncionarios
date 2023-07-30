@@ -127,7 +127,7 @@ int main( )
 	    // fim de variáveis/ strings
 		 
 		 
-		printf ("Digite o funcionario voce quer Deletar do Sistema?\n\n" );// input informacões do usuário 
+		printf ("Digite o funcionário voce quer Deletar do Sistema?\n\n" );// input informacões do usuário 
 		printf("Selecionando Funcionario: ");
 		
 		scanf("%s", name); // dando valor a variável name do tipo %s 
@@ -139,7 +139,7 @@ int main( )
 		if (file == NULL) // condição se nao haver valor ou numeros faca 
 		{
 			printf(" O Funcionario ");
-			printf(name);printf (" não se encontra no sistema!\n Por favor tente novamente com outro nome que esteja no sistema.\n");// mostrando o nome que esta sendo deletado do sistema e a msg de nao encontrado.
+			printf(name);printf (" Não se encontra no sistema!\n Por favor tente novamente com outro nome que esteja no sistema.\n");// mostrando o nome que esta sendo deletado do sistema e a msg de nao encontrado.
 			printf("\n");// pulando linhas
 			printf("pause"); 
 			fclose(file);	
@@ -148,7 +148,7 @@ int main( )
 		{		
 			fclose(file);
 			remove(name);//função de remove vai apagar o nada e se estiver um arquivo tambem 
-			printf(" O Funcionario " "");printf(name);printf("foi Excluido do sistema com sucesso\n\n");
+			printf(" O Funcionario " "");printf(name);printf("foi Excluído do sistema com sucesso\n\n");
 
 		}	
 	system("pause");
@@ -171,7 +171,8 @@ int main( )
 	printf("\tCadastrando Funcionario\n ");
 	printf("\t\t1 - Nome do Funcionario\n");
 	printf("\t\t2 - Consulta de Nomes \n");
-	printf("\t\t3 - Deletar funcionario \n\n"); 
+	printf("\t\t3 - Deletar funcionario \n"); 
+	printf("\t\t4 - Sair do sistema \n\n"); 
 	printf("\tSelecionar opçào:  "); 
 	// fim do menu
 		  	
@@ -192,12 +193,20 @@ int main( )
 		 
 				 case 3:
 				 	deletarFuncionario();
-				 break; 
-		 
+				 break;
+				  
+				 case 4: 
+				 printf("Obrigado por utilizar o nosso sistema\n ");
+				 return 0; // Quebrar de todos os laços, repeat e funções do meu programa.
+				 break;  
+			
 				 default: 
 					 printf ("\tDesculpe! Ainda não temos essa opção disponivel no nosso sistema web. Por favor comparecer ao RH da SejaFlow "); 	
 				 	 system ("pause");
+				 	 
 				 break;
+				 
+			
 			}// Fim das seleção	
 	}// fim do lacoRepeat1		
 		
