@@ -81,6 +81,7 @@ int main( )
 		
 		printf("Registro de Funcionario Efetuado com Sucesso."); 	
 		printf("\n\n");
+		
 		system ("pause");// pauso o programa e peço como parametro que o usuário pressione uma tecla para continuar 
 				
 	}
@@ -122,7 +123,6 @@ int main( )
 	int deletarFuncionario  ()
 	{
 		//inicio de variáveis / strings
-	
 		char name [40]; 
 	    // fim de variáveis/ strings
 		 
@@ -149,65 +149,86 @@ int main( )
 			fclose(file);
 			remove(name);//função de remove vai apagar o nada e se estiver um arquivo tambem 
 			printf(" O Funcionario " "");printf(name);printf("foi Excluído do sistema com sucesso\n\n");
-
+			fclose(file);
 		}	
 	system("pause");
 			
 	}
-	//Declarando Variaveis do tipo inteiro.	
+	
+
+	// declarando as stringd/ variáveis 
 	int OpcoesMenuRegistro=0;
- 	int lacosRepeatMenu=1; 
- 	
- 	//inicio do laco de repeat 1	
+	int lacosRepeatMenu=1; 
+	int ComparacaoStringsPasswoard;
+	char PasswoardAdiministrador[10]="a";	
+
+	// fim das strings/variáveis
+	
+	setlocale(LC_ALL, "Portuguese");// aceitar caractere 
+     while(ComparacaoStringsPasswoard = 0) 
+     {
+	 
+		printf("\t### RH SejaFlow ###\n\n"); 
+		printf("Login do administrador \n\n Digite a senha do adiministrador: ");
+		scanf("%s",PasswoardAdiministrador);
+	  
+		ComparacaoStringsPasswoard = strcmp(PasswoardAdiministrador, "admin"); 
+	
+}
+		// colocando a minha validação por senha do meu programa.
+	system("cls")
+	if (ComparacaoStringsPasswoard == 0)
+	{	
+	//inicio do laco de repeat 1
  		for(lacosRepeatMenu=1;lacosRepeatMenu=1;)
- 	{	
-	system("cls"); //Limpar a tela 
-	setlocale(LC_ALL, "Portuguese");//Definindo a linguagem que vai ser o meu programa 
-
-	printf("\t### RH SejaFlow ###\n\n");//Definindo o titulo do programa	
-    printf("\tEscolha a opções que Deseja Executar Abaixo: \n\n");//definindo opçãoes do meu menu 1,2,3 
+ 			{		
+			system("cls"); //Limpar a tela 
+			setlocale(LC_ALL, "Portuguese");//Definindo a linguagem que vai ser o meu programa 
+	
+			printf("\t### RH SejaFlow ###\n\n");//Definindo o titulo do programa	
+    		printf("\tEscolha a opções que Deseja Executar Abaixo: \n\n");//definindo opçãoes do meu menu 1,2,3 
 		
-	//Inicio do Menu 
-	printf("\tCadastrando Funcionario\n ");
-	printf("\t\t1 - Nome do Funcionario\n");
-	printf("\t\t2 - Consulta de Nomes \n");
-	printf("\t\t3 - Deletar funcionario \n"); 
-	printf("\t\t4 - Sair do sistema \n\n"); 
-	printf("\tSelecionar opçào:  "); 
-	// fim do menu
+			//Inicio do Menu 
+			printf("\tCadastrando Funcionario\n ");
+			printf("\t\t1 - Nome do Funcionario\n");
+			printf("\t\t2 - Consulta de Nomes \n");
+			printf("\t\t3 - Deletar funcionario \n"); 
+			printf("\t\t4 - Sair do sistema \n\n"); 
+			printf("\tSelecionar opçào:  "); 
+			// fim do menu
 		  	
- 	scanf("%d",&OpcoesMenuRegistro);//armazenando as  escolhas do usuário 
+ 			scanf("%d",&OpcoesMenuRegistro);//armazenando as  escolhas do usuário 
  	
-	system ("cls");
-
-	//inicio da seleção	 
-	switch (OpcoesMenuRegistro) // usando a condição	SWITCH
+			system ("cls");
+	
+			//inicio da seleção	 
+			switch (OpcoesMenuRegistro) // usando a condição	SWITCH
 			{
-		 		 case 1:
+				 case 1:
 	  				registroFuncionario();
-		  		 break; 
+		  		break; 
 		
-				 case 2:
-				    consultaFuncionario();
+				case 2:
+			 		 consultaFuncionario();
 				 break;
 		 
-				 case 3:
-				 	deletarFuncionario();
+				case 3:
+					deletarFuncionario();
 				 break;
 				  
-				 case 4: 
-				 printf("Obrigado por utilizar o nosso sistema\n ");
-				 return 0; // Quebrar de todos os laços, repeat e funções do meu programa.
-				 break;  
+				case 4: 
+					printf("Obrigado por utilizar o nosso sistema\n ");
+					return 0; // Quebrar de todos os laços, repeat e funções do meu programa.
+				break;  
 			
-				 default: 
+				default: 
 					 printf ("\tDesculpe! Ainda não temos essa opção disponivel no nosso sistema web. Por favor comparecer ao RH da SejaFlow "); 	
-				 	 system ("pause");
-				 	 
-				 break;
-				 
-			
+					 system ("pause");
+			 	break;
 			}// Fim das seleção	
-	}// fim do lacoRepeat1		
-		
+		}// fim do lacoRepeat1		
+	}
+	else 
+
+		printf("\tsenha invalida\n Por favor informe a senha correta!");	
 }
